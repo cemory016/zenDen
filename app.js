@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,6 +15,11 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+var mongoose = require('mongoose');
+mongoose.connect('process.env.MONGODB_URI');
+
+var db = mongoose.connection
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,6 +44,16 @@ app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+// // Will log an error if db can't connect to MongoDB
+// db.on('error', function (err) {
+//   console.log(err)
+// })
+// // Will log "database has been connected" if it successfully connects.
+// db.once('open', function () {
+//   console.log('database has been connected!')
+// })
+
 
   // render the error page
   res.status(err.status || 500);
