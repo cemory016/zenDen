@@ -14,7 +14,7 @@ var aboutController = require('../controller/aboutController');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource: USER');
+  res.send('respond with a resource: ABOUT');
 });
 
 //module.exports = router;
