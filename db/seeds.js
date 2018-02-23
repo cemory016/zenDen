@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 // Notice we import the MODELS not the SCHEMA
 //const Soda = require('../models/soda')
 const user = require('../models/users')
+const moodGoalSchema = require('../models/moodGoals')
+const currentMoodSchema = require('../models/currentMood')
 
 // remember that this is a standalone file, meaning we will run this
 // by writing `node db/seeds.js`
@@ -19,31 +21,25 @@ db.on('error', (err) => {
 })
 
 // Setting up all of our test data
-const userSchema = new User({
+const carmen = new user({
     username: "Carmen",
     email: { type: "carmen@gmail.com", required: true, unique: true },
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    created_at: Date,
-    updated_at: Date,
     advice: "Don't Worry Be Happy",
   })
-  const userSchema = new User({
+  const emilya = new user({
     username: "Emily",
     email: { type: "emory@gmail.com", required: true, unique: true },
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    created_at: Date,
-    updated_at: Date,
     advice: "Don't Worry",
   })
-  const userSchema = new User({
+  const sarah = new user({
     username: "Sarah",
     email: { type: "sarah@gmail.com", required: true, unique: true },
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    created_at: Date,
-    updated_at: Date,
     advice: "Be Happy",
   })
 

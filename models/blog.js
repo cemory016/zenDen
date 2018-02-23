@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const BlogSchema = require('../db/schemas/blogSchema')
+const blogSchema = require('../db/schemas/blogSchema')
 
 
+const Blog = mongoose.model('blog', blogSchema)
 
-
-module.exports = BlogSchema
+module.exports = Blog

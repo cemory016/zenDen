@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const CurrentMoodSchema = require('../db/schemas/currentMoodSchema')
+const currentMoodSchema = require('../db/schemas/currentMoodSchema')
 
 
+const CurrentMood = mongoose.model('currentMood', currentMoodSchema)
 
-
-module.exports = CurrentMoodSchema
+module.exports = CurrentMood

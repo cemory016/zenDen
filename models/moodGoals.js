@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const MoodGoalSchema = require('../db/schemas/moodGoalSchema')
+const moodGoalSchema = require('../db/schemas/moodGoalSchema')
 
 
+const MoodGoals = mongoose.model('moodGoals', moodGoalSchema)
 
-
-module.exports = MoodGoalSchema
+module.exports = MoodGoals

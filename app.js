@@ -12,8 +12,8 @@ var app = express();
 
 //Controllers (require is pulling a file):
 var userController = require('./controller/userController.js');
-var userController = require('./controller/currentMoodController.js')
-var userController = require('./controller/moodGoalControllers.js')
+var currentMoodController = require('./controller/currentMoodController.js')
+var moodGoalController = require('./controller/moodGoalController.js')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
