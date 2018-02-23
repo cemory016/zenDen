@@ -9,7 +9,7 @@ var blogController = require('../controller/blogController');
 var currentMoodController = require('../controller/currentMoodController');
 var moodGoalController = require('../controller/moodGoalController');
 var userController = require('../controller/userController');
-var aboutController = require('../controller/aboutController');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

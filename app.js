@@ -33,7 +33,7 @@ db.on('error', (err) => {
 // Second argument is the controller itself
 var index = require('./controller/index');
 var users = require('./controller/userController');
-var about = require('./controller/aboutController');
+
 var blog = require('./controller/blogController');
 var currentMood = require('./controller/currentMoodController');
 var moodGoals = require('./controller/moodGoalController');
@@ -50,7 +50,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // this is the route being typed in bowser:
 app.use('/', index);
 app.use('/users', users);
-app.use('/about', about)
 //app.use('/users/:usersId/blog', blogController)
 //app.use('/users/:usersId/currentMood', currentMoodController)
 //app.use('/users/:usersId/moodGoal', moodGoalController)

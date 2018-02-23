@@ -1,7 +1,8 @@
 
 var express = require('express');
-var router = express.Router();
-const CurrentMood = require('../models/currentMood')
+var router = express.Router({mergeParams: true});
+const User = require('../models/users')
+
 // IMPORTANT: make sure to add merge params
 //const router = express.Router({ mergeParams: true })
 
@@ -10,26 +11,32 @@ var blogController = require('../controller/blogController');
 var currentMoodController = require('../controller/currentMoodController');
 var moodGoalController = require('../controller/moodGoalController');
 var userController = require('../controller/userController');
-var aboutController = require('../controller/aboutController');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource: USER');
-});
 
-//module.exports = router;
+/* GET users listing. once listening delete or there will be a conflict. */
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource: USER');
+// });
 
-/* GET home page. */
-//router.get('/', (req, res) => {
 
-//   // Find the company by route params defined in app.js
-//   Company.findById(req.params.companyId).then((company) => {
+
+
+
+
+
+
+//tried this below
+/* GET Index/home page. */
+// router.get('/', (req, res) => {
+
+// //   // Find the company by route params defined in app.js
+// User.findById(req.params.userID).then((username) => {
 
 //     // Pass all sodas and the company to a view specifically for showing all sodas
-//     const sodas = company.sodas
-//     res.render('soda/index', {
-//       company: company,
-//       sodas: sodas
+//     const user = user.CurrentMood
+//     res.render('user/index', {
+//       currentMood: currentMood,
+//       user: user
 //     })
 //   })
 // })
@@ -136,6 +143,72 @@ router.get('/', function(req, res, next) {
 //     res.redirect(`/companies/${req.params.companyId}/sodas`)
 //   })
 // })
+//USER INDEX-------GET//`
+router.get('/', (req, res) => {
 
+  User.find().then((users) => {
+      res.render('user/index', {
+          users: users
+      })
+  })
+
+})
+
+//USER NEW------GET//
+router.get('/new', (req, res) => {
+res.render('users/new')
+})
+
+
+//USER SHOW-----GET//
+router.get('/:id', (req, res) => {
+
+  User.findById(req.params.id).then((user) => {
+      res.render('users/show', {
+          user: user
+      })
+  })
+
+})
+//USER------CREATE/POST//
+router.post('/', (req, res) => {
+const newUser = new User({
+  name: req.body.name,
+})
+
+newUser.save().then((savedUser) => {
+  res.redirect('/users')
+})
+})
+
+//USER EDIT-----GET//
+router.get('/:id/edit', (req, res) => {
+
+  User.findById(req.params.id).then((user) => {
+
+      res.render('users/edit', {
+          id: req.params.id,
+          user:user
+      })
+  })
+})
+
+//USER PATCH------PUT/UPDATE//
+// router.patch('/:id', (req, res) => {
+//   User.findByIdAndUpdate(req.params.id, {
+//     name: req.body.username,
+//    // img: req.body.img,
+//   }, {new: true}).then((updatedUser) => {
+//       res.redirect(`/users/${updatedUser._id}`)
+//   })
+// })
+
+//USER DELETE-------DESTROY//
+
+router.delete('/:id', (req, res) => {
+User.findByIdAndRemove(req.params.id).then(() => {
+  res.redirect('/users')
+})
+})
 
 module.exports = router
