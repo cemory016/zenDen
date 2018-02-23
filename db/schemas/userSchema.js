@@ -14,20 +14,9 @@ const userSchema = new Schema({
 
 module.exports = userSchema
 
-
-
 // WHAT IS THIS????? 
 //Use native promises
 //mongoose.Promise = global.Promise;
-
-var UserSchema = new Schema({
-  first_name: String,
-  last_name: String,
-  email: { type: String, required: true, unique: true },
-  created_at: Date,
-  updated_at: Date,
-  items: [ItemSchema]
-});
 
 UserSchema.pre('save', function(next){
   now = new Date();
@@ -37,7 +26,6 @@ UserSchema.pre('save', function(next){
   }
   next();
 });
-
 
 var UserModel = mongoose.model("User", UserSchema);
 var ItemModel = mongoose.model("Item", ItemSchema);

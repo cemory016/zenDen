@@ -1,0 +1,17 @@
+<h1>Edit {{user.name}}</h1>
+<form method="POST" action="/user/{{id}}?_method=PATCH">
+  <div>
+    <label for="name">Zen Den Member</label>
+    <input type="text" name="name" value="{{user.name}}">
+  </div>
+  <div>
+    <label for="current_mood">Current Mood</label>
+    <input type="text" name="current_mood" value="{{user.current_mood}}">
+  </div>
+  <div>
+    <label for="mood_goal">Mood Goaln</label>
+    <input type="text" name="mood_goal" value="{{user.mood_goal}}">
+  </div>
+
+</form>
+<a href="/user/{{id}}">Back to {{user.name}}</a>
