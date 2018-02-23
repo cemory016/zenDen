@@ -19,15 +19,23 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 var mongoose = require('mongoose');
-mongoose.connect('process.env.MONGODB_URI');
-
+//mongoose.connect('process.env.MONGODB_URI');
+mongoose.connect('mongodb://localhost/zenden');
 var db = mongoose.connection
+db.on('open', () => {
+  console.log('Successfully connected to mongoDB')
+})
 
+db.on('error', (err) => {
+  console.log(err)
+})
+// First argument here is the entry point for the controller
+// Second argument is the controller itself
 var index = require('./controller/index');
 var users = require('./controller/userController');
-var users = require('./controller/blogController');
-var users = require('./controller/currentController');
-var users = require('./controller/moodGoalController');
+var blog = require('./controller/blogController');
+var currentMood = require('./controller/currentMoodController');
+var moodGoals = require('./controller/moodGoalController');
 
 
 // uncomment after placing your favicon in /public
@@ -40,6 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+//app.use('/about', about)
+//app.use('/users/:usersId/blog', blogController)
+//app.use('/users/:usersId/currentMood', currentMoodController)
+//app.use('/users/:usersId/moodGoal', moodGoalController)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
