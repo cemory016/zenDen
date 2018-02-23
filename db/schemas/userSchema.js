@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const userSchema = require('./userSchema')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const userSchema = new User({
   username: String,
   email: { type: String, required: true, unique: true },
   current_mood: [ currentMoodSchema ], // This sets up a one to many relationship

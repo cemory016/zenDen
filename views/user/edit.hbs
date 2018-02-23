@@ -1,8 +1,8 @@
-<h1>Edit {{user.name}}</h1>
+<h1>Edit {{user.username}}</h1>
 <form method="POST" action="/user/{{id}}?_method=PATCH">
   <div>
     <label for="name">Zen Den Member</label>
-    <input type="text" name="name" value="{{user.name}}">
+    <input type="text" name="name" value="{{user.username}}">
   </div>
   <div>
     <label for="current_mood">Current Mood</label>
@@ -14,4 +14,4 @@
   </div>
 
 </form>
-<a href="/user/{{id}}">Back to {{user.name}}</a>
+<a href="/user/{{id}}">Back to {{user.username}}</a>

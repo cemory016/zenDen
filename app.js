@@ -10,10 +10,10 @@ var methodOverride = require('method-override');
 var hbs = require('hbs');
 var app = express();
 
-//Controllers:
-//user --> var userController = require('./controllers/users.js)
-//currentMood --> var userController = require('./controllers/currentMood.js)
-//moodGoal --> var userController = require('./controllers/moodGoal.js)
+//Controllers (require is pulling a file):
+var userController = require('./controller/userController.js');
+var userController = require('./controller/currentMoodController.js')
+var userController = require('./controller/moodGoalControllers.js')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -47,6 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// this is the route being typed in bowser:
 app.use('/', index);
 app.use('/users', users);
 app.use('/about', about)
