@@ -147,7 +147,7 @@ var userController = require('../controller/userController');
 router.get('/', (req, res) => {
 
   User.find().then((users) => {
-      res.render('user/index', {
+      res.render('users/index', {
           users: users
       })
   })

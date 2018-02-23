@@ -1,0 +1,9 @@
+<h1>Zen Member</h1>
+
+<ul>
+  {{#each users}}
+    <li><a href="/users/{{_id}}" >{{username}}</a></li>
+  {{/each}}
+</ul>
+
+<a href="/users/new">New user</a>
