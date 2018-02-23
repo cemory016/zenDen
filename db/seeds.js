@@ -23,43 +23,43 @@ db.on('error', (err) => {
 // Setting up all of our test data
 const carmen = new user({
     username: "Carmen",
-    email: { type: "carmen@gmail.com", required: true, unique: true },
+    email: "carmen@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     advice: "Don't Worry Be Happy",
   })
-  const emilya = new user({
+  const emily = new user({
     username: "Emily",
-    email: { type: "emory@gmail.com", required: true, unique: true },
+    email: "emory@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     advice: "Don't Worry",
   })
   const sarah = new user({
     username: "Sarah",
-    email: { type: "sarah@gmail.com", required: true, unique: true },
+    email: "sarah@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     advice: "Be Happy",
   })
 
-// // remove all Sodas
-// Soda.remove().then(() => {
+// remove all usernames
 
-//   // THEN remove all Companies
-//   return Company.remove()
-// }).then(() => {
 
-//   // THEN save multiple companies to the database
-//   return Company.insertMany([ coke, pepsi ])
-// }).then(() => {
+// THEN remove all users
+user.remove()
+.then(() => {
 
-//   // THEN close the database
-//   console.log('Saved Successfully')
-//   db.close()
-// }).catch((err) => {
+// THEN save multiple users to the database
+return user.insertMany([sarah, emily, carmen])
+}).then(() => {
 
-//   // If there are any errors, log it and then close the DB
-//   console.log(err)
-//   db.close()
-// })
+// THEN close the database
+console.log('Saved Successfully')
+db.close()
+}).catch((err) => {
+
+// If there are any errors, log it and then close the DB
+console.log(err)
+db.close()
+})
