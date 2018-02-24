@@ -1,16 +1,28 @@
 <h1>SHOW hbs</h1>
 <h1>{{user.username}}</h1>
 
-<h3>current mood: {{user.current_mood}}</h3>
-<h3>mood goal: {{user.mood_goal}}</h3>
+<h3>Profile: {{user.profile}}</h3>
+<h3>Current Mood: {{user.current_mood}}</h3>
+<h3>Mood Goal: {{user.mood_goal}}</h3>
+<h3> Most Current Blog Post: **reach add most current blog post here</h3>
 <h3>Feelings Blog:{{user.blog}}</h3>
 
-<button class="btn">
-    <a href="/users">Back to the Den</a>
 <div>
 <button class="btn">
-  <a href="/about">About Zen Den</a>
+    <a href="/users/{{user._id}}/edit">Edit Profile</a>
+</button>
+<form action="/users/{{user.id}}?_method=DELETE" method="POST">
+    <button class="btn" type="submit">Delete {{user.username}}</button>
+</form>
 </div>
+<div>
+<break>
+<button class="btn">
+    <a href="/users">Back to the Den</a>
+</div>
+<button class="btn">
+  <a href="/about">About Zen Den</a>
+
 
 {{!-- <ul>
   {{#each user.sodas}}

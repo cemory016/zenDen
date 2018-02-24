@@ -1,18 +1,24 @@
 <h1>EDIT hbs</h1>
 <h1>Edit {{user.username}}</h1>
-<form method="POST" action="/user/{{id}}?_method=PATCH">
+
+<form method="POST" action="/users/{{id}}?_method=PATCH">
   <div>
-    <label for="name">Zen Den Member</label>
+    <label for="name">User Name</label>
     <input type="text" name="name" value="{{user.username}}">
+  </div>
+  <div>
+    <label for="email">Enter a valid email</label>
+    <input type="text" name="email" value="{{user.email}}">
   </div>
   <div>
     <label for="current_mood">Current Mood</label>
     <input type="text" name="current_mood" value="{{user.current_mood}}">
   </div>
   <div>
-    <label for="mood_goal">Mood Goaln</label>
+    <label for="mood_goal">Mood Goal</label>
     <input type="text" name="mood_goal" value="{{user.mood_goal}}">
   </div>
-
+  <button type="submit">Update account</button>
+  <button><a href="/users/{{id}}">cancel</a></button>
 </form>
-<a href="/user/{{id}}">Back to {{user.username}}</a>
+<a href="/users/{{id}}">Back to {{user.username}}'s Profile</a>

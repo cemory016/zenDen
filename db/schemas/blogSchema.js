@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 
 const BlogSchema = new Schema({
-    mood: String,
+    current_mood: [ currentMoodSchema ],
+    mood_goal: [ moodGoalSchema ],
     define: String,
     created_at: Date,
     updated_at: Date,
