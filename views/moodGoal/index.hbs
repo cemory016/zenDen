@@ -1,0 +1,17 @@
+<h1>Zen Member</h1>
+<h2>Mood Goal</h2>
+
+<ul>
+  {{#each users}}
+    <li><a href="/users/{{_id}}" >{{username}}</a></li>
+    <li>{{mood_goal}}</li>
+</ul> 
+
+<h2>Lets Change our Mood</h2>
+<ul>
+    <li>{{moodGoals.mood}}</li>
+    <li>{{moodGoals.define}}</li>
+</ul>
+ {{/each}}
+<a href="/users/new">New user</a>
+<button type="submit">New User</button>

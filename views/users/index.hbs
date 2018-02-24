@@ -3,7 +3,10 @@
 <ul>
   {{#each users}}
     <li><a href="/users/{{_id}}" >{{username}}</a></li>
+    <li>{{current_mood}}</li>
+    <li>{{mood_goal}}</li>
   {{/each}}
-</ul>
+</ul> 
 
 <a href="/users/new">New user</a>
+<button type="submit">New User</button>

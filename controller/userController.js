@@ -194,14 +194,14 @@ router.get('/:id/edit', (req, res) => {
 })
 
 //USER PATCH------PUT/UPDATE//
-// router.patch('/:id', (req, res) => {
-//   User.findByIdAndUpdate(req.params.id, {
-//     name: req.body.username,
-//    // img: req.body.img,
-//   }, {new: true}).then((updatedUser) => {
-//       res.redirect(`/users/${updatedUser._id}`)
-//   })
-// })
+router.patch('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, {
+    name: req.body.username,
+   // img: req.body.img,
+  }, {new: true}).then((updatedUser) => {
+      res.redirect(`/users/${updatedUser._id}`)
+  })
+})
 
 //USER DELETE-------DESTROY//
 
