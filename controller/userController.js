@@ -71,6 +71,7 @@ router.patch('/:id', (req, res) => {
     username: req.body.name,
     email: req.body.email,
   }, {new: true}).then((updatedUser) => {
+      console.log(updatedUser);
       res.redirect(`/users/${updatedUser.id}`)
   })
 })
