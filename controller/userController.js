@@ -45,6 +45,7 @@ router.post('/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, {
     username: req.body.name,
     email: req.body.email,
+    profile: req.body.profile,
   }, {new: true}).then((updatedUser) => {
       console.log(updatedUser);
       res.redirect(`/users/${updatedUser.id}`)
@@ -81,6 +82,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.delete('/:id', (req, res) => {
 User.findByIdAndRemove(req.params.id).then(() => {
+  console.log("plz del3t me");
   res.redirect('/users')
 })
 })

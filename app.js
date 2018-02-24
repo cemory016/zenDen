@@ -70,14 +70,14 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-// // Will log an error if db can't connect to MongoDB
-// db.on('error', function (err) {
-//   console.log(err)
-// })
-// // Will log "database has been connected" if it successfully connects.
-// db.once('open', function () {
-//   console.log('database has been connected!')
-// })
+// Will log an error if db can't connect to MongoDB
+db.on('error', function (err) {
+  console.log(err)
+})
+// Will log "database has been connected" if it successfully connects.
+db.once('open', function () {
+  console.log('database has been connected!')
+})
 
 
   // render the error page
