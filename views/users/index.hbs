@@ -1,19 +1,17 @@
-<h1>Zen Member</h1>
+<h1>INDEX hbs</h1>
+<h1>Enter the Den</h1>
+<h1>Zen Members</h1>
 
-<ul>
+<div>
   {{#each users}}
     <li><a href="/users/{{_id}}" >{{username}}</a></li>
     <li>{{current_mood}}</li>
     <li>{{mood_goal}}</li>
+    
   {{/each}}
-</ul> 
+</div>
 
-
-
-<a href="./{{whisky.id}}/edit">Edit Me</a>
-    <form method="POST" action="./{{whisky.id}}?_method=DELETE">
-        <button class="delete" type="submit">Delete This Whisky</button>
-    </form>
-    </div>
-<a href="/users/new">New user</a>
-<button type="submit">New User</button>
+<button class="btn">
+    <a href="users/new">Become a member</a>
+<button class="btn">
+    <a href="users/guest">Enter the Den as a Guest</a>
