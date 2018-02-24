@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-const BlogSchema = new Schema({
+const blogSchema = new Schema({
     current_mood: [ currentMoodSchema ],
     mood_goal: [ moodGoalSchema ],
     define: String,

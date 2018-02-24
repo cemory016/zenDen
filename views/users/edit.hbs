@@ -1,7 +1,7 @@
 <h1>EDIT hbs</h1>
 <h1>Edit {{user.username}}</h1>
 
-<form method="POST" action="/users/{{id}}?_method=PATCH">
+<form action="/users/{{user.id}}?_method=PUT" method="PATCH">
   <div>
     <label for="name">User Name</label>
     <input type="text" name="name" value="{{user.username}}">
@@ -19,6 +19,6 @@
     <input type="text" name="mood_goal" value="{{user.mood_goal}}">
   </div>
   <button type="submit">Update account</button>
-  <button><a href="/users/{{id}}">cancel</a></button>
+  <button><a href="/users/{{user.id}}">cancel</a></button>
 </form>
 <a href="/users/{{id}}">Back to {{user.username}}'s Profile</a>
