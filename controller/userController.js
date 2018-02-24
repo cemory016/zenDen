@@ -40,6 +40,17 @@ router.get('/:id', (req, res) => {
   })
 
 })
+//USER PATCH------PUT/UPDATE//
+router.post('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, {
+    username: req.body.name,
+    email: req.body.email,
+  }, {new: true}).then((updatedUser) => {
+      console.log(updatedUser);
+      res.redirect(`/users/${updatedUser.id}`)
+  })
+})
+
 //USER------CREATE/POST//
 router.post('/', (req, res) => {
 const newUser = new User({
@@ -65,16 +76,6 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
-//USER PATCH------PUT/UPDATE//
-router.patch('/:id', (req, res) => {
-  User.findByIdAndUpdate(req.params.id, {
-    username: req.body.name,
-    email: req.body.email,
-  }, {new: true}).then((updatedUser) => {
-      console.log(updatedUser);
-      res.redirect(`/users/${updatedUser.id}`)
-  })
-})
 
 //USER DELETE-------DESTROY//
 

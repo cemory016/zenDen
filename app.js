@@ -53,7 +53,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/about', about);
 //app.use('/users/:usersId/blog', blogController)
-//app.use(ß'/users/:usersId/currentMood', currentMoodController)
+//app.use('/users/:usersId/currentMood', currentMoodController)
 //app.use('/users/:usersId/moodGoal', moodGoalController)
 
 
