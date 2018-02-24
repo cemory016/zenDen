@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
 
   User.findById(req.params.id).then((user) => {
       res.render('users/show', {
-          user: user
+          user: user,
       })
   })
 
@@ -57,6 +57,7 @@ router.post('/', (req, res) => {
 const newUser = new User({
   username: req.body.name,
   email: req.body.email,
+  profile: req.body.profile,
 })
 
 newUser.save().then((savedUser) => {
@@ -71,7 +72,8 @@ router.get('/:id/edit', (req, res) => {
 
       res.render('users/edit', {
           id: req.params.id,
-          user: user
+          user: user,
+          profile: profile,
 
       })
   })
@@ -82,7 +84,6 @@ router.get('/:id/edit', (req, res) => {
 
 router.delete('/:id', (req, res) => {
 User.findByIdAndRemove(req.params.id).then(() => {
-  console.log("plz del3t me");
   res.redirect('/users')
 })
 })
