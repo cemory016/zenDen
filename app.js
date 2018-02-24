@@ -14,6 +14,7 @@ var app = express();
 var userController = require('./controller/userController.js');
 var currentMoodController = require('./controller/currentMoodController.js')
 var moodGoalController = require('./controller/moodGoalController.js')
+var aboutController = require('./controller/aboutController.js')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -33,10 +34,10 @@ db.on('error', (err) => {
 // Second argument is the controller itself
 var index = require('./controller/index');
 var users = require('./controller/userController');
-
 var blog = require('./controller/blogController');
 var currentMood = require('./controller/currentMoodController');
 var moodGoals = require('./controller/moodGoalController');
+var about = require('./controller/aboutController')
 
 
 // uncomment after placing your favicon in /public
@@ -50,8 +51,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // this is the route being typed in bowser:
 app.use('/', index);
 app.use('/users', users);
+app.use('/about', about);
 //app.use('/users/:usersId/blog', blogController)
-//app.use('/users/:usersId/currentMood', currentMoodController)
+//app.use(ß'/users/:usersId/currentMood', currentMoodController)
 //app.use('/users/:usersId/moodGoal', moodGoalController)
 
 

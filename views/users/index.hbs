@@ -8,5 +8,12 @@
   {{/each}}
 </ul> 
 
+
+
+<a href="./{{whisky.id}}/edit">Edit Me</a>
+    <form method="POST" action="./{{whisky.id}}?_method=DELETE">
+        <button class="delete" type="submit">Delete This Whisky</button>
+    </form>
+    </div>
 <a href="/users/new">New user</a>
 <button type="submit">New User</button>
