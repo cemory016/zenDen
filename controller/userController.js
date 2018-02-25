@@ -1,6 +1,6 @@
 
 var express = require('express');
-var router = express.Router({mergeParams: true});
+var router = express.Router();
 const User = require('../models/users')
 
 // IMPORTANT: make sure to add merge params
@@ -29,7 +29,6 @@ router.get('/new', (req, res) => {
 res.render('users/new')
 })
 
-
 //USER SHOW-----GET//
 router.get('/:id', (req, res) => {
 
@@ -40,6 +39,8 @@ router.get('/:id', (req, res) => {
   })
 
 })
+
+
 //USER PATCH------PUT/UPDATE//
 router.post('/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, {
@@ -49,6 +50,20 @@ router.post('/:id', (req, res) => {
   }, {new: true}).then((updatedUser) => {
       console.log(updatedUser);
       res.redirect(`/users/${updatedUser.id}`)
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+})
+
+router.delete('/:id', (req, res) => {
+  console.log("trying to delete");
+  User.findByIdAndRemove(req.params.id).then(() => {
+    console.log("trying to delete");
+    res.redirect('/users')
+  })
+  .catch((err)=>{
+    console.log(err)
   })
 })
 
@@ -73,19 +88,18 @@ router.get('/:id/edit', (req, res) => {
       res.render('users/edit', {
           id: req.params.id,
           user: user,
-          profile: profile,
+          profile: user.profile,
 
       })
   })
+  .catch((err) =>{
+    console.log(err)
 })
-
+})
 
 //USER DELETE-------DESTROY//
 
-router.delete('/:id', (req, res) => {
-User.findByIdAndRemove(req.params.id).then(() => {
-  res.redirect('/users')
-})
-})
+
+
 
 module.exports = router

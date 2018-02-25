@@ -1,3 +1,5 @@
+
+
 <h1>SHOW hbs</h1>
 <h1>{{user.username}}</h1>
 
@@ -9,13 +11,13 @@
 <h3>Feelings Blog:{{user.blog}}</h3>
 
 <div>
-<button class="btn">
-    <a href="/users/{{user._id}}/edit">Edit Profile</a>
-</button>
+  <button class="btn">
+      <a href="/users/{{user._id}}/edit">Edit Profile</a>
+  </button>
 
-<form action="/users/{{user.id}}?_method=DELETE" method="POST">
-<button class="btn" type="submit">Delete {{user.username}}</button>
-{{!-- <input type="submit" value="Delete {{user.username}}"/> --}}
+
+<form action="/users/{{user._id}}?_method=DELETE" method="post">
+  <input type="submit" value="Delete {{user.username}}"/>
 </form>
 
 </div>

@@ -2,7 +2,7 @@
 <h1>Edit {{user.username}}</h1>
 
 
-<form method="POST" action="/users/{{id}}?_method=PATCH">
+<form method="post" action="/users/{{id}}?_method=PATCH">
   <div>
     <label for="name">User Name</label>
     <input type="text" name="name" value="{{user.username}}">

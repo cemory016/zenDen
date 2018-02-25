@@ -7,7 +7,7 @@ const blogSchema = require('./blogSchema')
 
 const userSchema = new Schema({
   username: String,
-  email: { type: String, required: true, unique: true },
+  email: String,
   profile: String,
   current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
   mood_goal: [ moodGoalSchema ],
