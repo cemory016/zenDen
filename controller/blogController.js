@@ -49,19 +49,21 @@ router.get('/', (req, res) => {
   
   
   //USER PATCH------PUT/UPDATE//
-  router.patch('/:id/blogs', (req, res) => {
-    Blog.findByIdAndUpdate(req.params.id, {
-        title: req.body.title,
-        words: req.body.words,
-    }, {new: true}).then((updatedBlog) => {
-        console.log(updatedBlog);
-        res.redirect(`users/:id/blogs/${updatedBlog.id}`)
-    })
+  router.patch('/:id', (req, res) => {
+      User.findById(req.params.usersId).then((user) => {
+          const blog = user.blog.id(req.params.id)
+          blog.title = req.body.title
+          blog.words = req.body.words
+
+          return user.save()
+      }).then((updatedUser) => {
+          res.redirect(`/users/${req.params.usersId}/blogs/${req.params.id}`)
+      })
     .catch((err) => {
       console.log(err);
     })
   })
-  
+  //one can not delete ones feelings...sorry folks
   // router.delete('blog/:id', (req, res) => {
   //   console.log("trying to delete");
   //   Blog.findByIdAndRemove(req.params.id).then(() => {
@@ -93,7 +95,7 @@ router.get('/', (req, res) => {
         const blog = user.blog.id(req.params.id)
         res.render('users/blog/edit', {
             blogID: req.params.id,
-            id: req.params.usersID,
+            id: req.params.usersId,
             user: user,
             blog: blog,
         })
