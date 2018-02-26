@@ -4,7 +4,6 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 // Notice we import the MODELS not the SCHEMA
-//const Soda = require('../models/soda')
 const user = require('../models/users')
 const moodGoalSchema = require('../models/moodGoals')
 const currentMoodSchema = require('../models/currentMood')
@@ -27,21 +26,21 @@ const carmen = new user({
     email: "carmen@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    advice: "Don't Worry Be Happy",
+    tagLine: "Don't Worry Be Happy",
   })
   const emily = new user({
     username: "Emily",
     email: "emory@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    advice: "Don't Worry",
+    tagLine: "Don't Worry",
   })
   const sarah = new user({
     username: "Sarah",
     email: "sarah@gmail.com",
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
-    advice: "Be Happy",
+    tagLine: "Be Happy",
   })
 
 // remove all usernames

@@ -2,7 +2,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/users')
-
+const Blog = require('../models/blogs');
 // IMPORTANT: make sure to add merge params
 //const router = express.Router({ mergeParams: true })
 
@@ -40,13 +40,13 @@ router.get('/:id', (req, res) => {
 
 })
 
-
 //USER PATCH------PUT/UPDATE//
-router.post('/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, {
     username: req.body.name,
     email: req.body.email,
     profile: req.body.profile,
+    tagLine: req.body.tagLine,
   }, {new: true}).then((updatedUser) => {
       console.log(updatedUser);
       res.redirect(`/users/${updatedUser.id}`)
@@ -73,6 +73,7 @@ const newUser = new User({
   username: req.body.name,
   email: req.body.email,
   profile: req.body.profile,
+  tagLine: req.body.tagLine,
 })
 
 newUser.save().then((savedUser) => {
@@ -89,6 +90,7 @@ router.get('/:id/edit', (req, res) => {
           id: req.params.id,
           user: user,
           profile: user.profile,
+          tagLine: user.tagLine,
 
       })
   })

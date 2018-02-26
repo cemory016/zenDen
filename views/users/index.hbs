@@ -4,14 +4,23 @@
 
 <div>
   {{#each users}}
-    <li><a href="/users/{{_id}}" >{{username}}</a></li>
-    <li>{{current_mood}}</li>
-    <li>{{mood_goal}}</li>
-    
+  
+   {{!-- <table>
+     <td><img src="/zenIMG/charles-deluvio-540415-unsplash.jpg" alt="Girl in a jacket" style="width:500px;height:600px;">"</td> --}}
+     <ul>
+     <li><a href="/users/{{_id}}">{{username}}</a></li>
+     <li>Tag Line: {{user.tagLine}}</li>
+     <li>{{user.email}}</li>
+   </ul>
+    {{!-- <li>{{current_mood}}</li>
+    <li>{{mood_goal}}</li> --}}
   {{/each}}
 </div>
 
 <button class="btn">
     <a href="users/new">Become a member</a>
+<div>
 <button class="btn">
     <a href="users/guest">Enter the Den as a Guest**add guest member that doesnt have blogging or require login email</a>
+    </button>
+</div>

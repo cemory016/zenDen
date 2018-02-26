@@ -9,6 +9,7 @@ const userSchema = new Schema({
   username: String,
   email: String,
   profile: String,
+  tagLine: String,
   current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
   mood_goal: [ moodGoalSchema ],
   advice: String,

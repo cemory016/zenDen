@@ -1,0 +1,19 @@
+<h1>Blog INDEX hbs</h1>
+
+<h1>{{user.username}}</h1>
+<h2>{{user.tagLine}}</h2>
+
+<h1>Log how you feel to help make sence of your emotions</h1>
+<h2>{{user.username}}'s current mood is {{current_mood}} and is trying to achieve a zen mood of {{mood_goal}}.</h2>
+<h2>Write it out:</h2>
+
+<div>
+<h3>{{blog.created_at}}</h3>
+<h3>{{blog.title}}</h3>
+<p>{{blog.words}}</p>
+<button class="btn">
+    <a href="blog/edit/:id">edit post</a>
+</div>
+
+<button class="btn">
+    <a href="blog/new/">new blog post</a>

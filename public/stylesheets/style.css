@@ -5,4 +5,18 @@ body {
 
 a {
   color: #00B7FF;
+  border-width: 10px;
+  border-color: blueviolet;
+
+}
+ p {
+   color: rgb(16, 94, 33);
+   border-width: 10px;
+   border-color: blueviolet;
+ } 
+ h1 {
+  color: rgb(16, 94, 33);
+  border-width: 10px;
+  border-color: blueviolet;
+  border: 10px;
 }
