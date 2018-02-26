@@ -6,9 +6,12 @@
 <h2>{{user.email}}</h2>
 
 <div>
+<img src="images/deniz-altindas-38128-unsplash.jpg" alt="userimg">
+
 <h3>Profile: {{user.profile}}</h3>
 <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
 <h3>Select Current Mood:</h3>{{user.current_mood}}
+<br>
   <select id="dropCurrentMood" name="currentMood">
     <option value=""></option>
     <option value="happy">Happy</option>
@@ -18,6 +21,7 @@
   </select>
 
 <h3>Select Mood Goal:</h3>{{user.mood_goal}}
+<br>
   <select id="dropMoodGoal" name="moodGoal">
     <option value=""></option>
     <option value="happy">Happy</option>
@@ -25,7 +29,8 @@
     <option value="loving">Loving</option>
     <option value="calm">Calm</option>
   </select>
-  
+  <br>
+ <br>
   <button type="submit">Submit Moods</button>
 </form>
 </div>
@@ -59,9 +64,9 @@
 </form>
 
 
-<button class="btn">
+{{!-- <button class="btn">
   <a href="/about">About Zen Den</a>
-  </button>
+  </button> --}}
 
 
 {{!-- <ul>

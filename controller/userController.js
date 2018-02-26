@@ -111,7 +111,7 @@ router.get('/:id/edit', (req, res) => {
           user: user,
           profile: user.profile,
           tagLine: user.tagLine,
-
+          img: user.img
       })
   })
   .catch((err) =>{

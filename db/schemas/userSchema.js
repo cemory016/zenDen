@@ -13,7 +13,8 @@ const userSchema = new Schema({
   current_mood: String , // This sets up a one to many relationship
   mood_goal: String,
   advice: String,
-  blog: [ blogSchema ]
+  blog: [ blogSchema ],
+  img: String
 })
 
 module.exports = userSchema

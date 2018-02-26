@@ -27,6 +27,7 @@ const carmen = new user({
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     tagLine: "Don't Worry Be Happy",
+    img: "images/charles-deluvio-540415-unsplash.jpg"
   })
   const emily = new user({
     username: "Emily",
@@ -34,6 +35,7 @@ const carmen = new user({
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     tagLine: "Don't Worry",
+    img: "images/charles-deluvio-540415-unsplash.jpg"
   })
   const sarah = new user({
     username: "Sarah",
@@ -41,6 +43,7 @@ const carmen = new user({
     current_mood: [ currentMoodSchema ], // This sets up a one to many relationship
     mood_goal: [ moodGoalSchema ],
     tagLine: "Be Happy",
+    img: "images/charles-deluvio-540415-unsplash.jpg"
   })
 
 // remove all usernames

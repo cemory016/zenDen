@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-   {{!-- <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
-  crossorigin="anonymous"></script>--}}
-    <script src="/script/main.js"></script>
-  </body>
+
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+    <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo right">Zen Den</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/users">Users</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+  {{{body}}} {{!--
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>--}}
+  <script src="/script/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
 </html>
