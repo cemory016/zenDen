@@ -1,29 +1,26 @@
-<h1>
-
-  SHOW hbs</h1>
+<div>
+<img src="/images/deniz-altindas-38128-unsplash.jpg" alt="userimg" height=200vh width=300vw>
 <h1>{{user.username}}</h1>
 <h2>{{user.tagLine}}</h2>
 <h2>{{user.email}}</h2>
+</div>
 
 <div>
-  <img src="images/deniz-altindas-38128-unsplash.jpg" alt="userimg">
-
   <h3>Profile: {{user.profile}}</h3>
   <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
-    <h3>Select Current Mood:</h3>{{user.current_mood}}
-
+   
+  <h3>{{user.current_mood}}</h3>
     <select id="dropCurrentMood" name="currentMood">
-      <option value=""></option>
+      <option value="pick1">Select Current Mood Dropdown:</option>
       <option value="happy">Happy</option>
       <option value="sad">Sad</option>
       <option value="angry">Angry</option>
       <option value="frustrated">Frustrated</option>
     </select>
-
-    <h3>Select Mood Goal:</h3>{{user.mood_goal}}
-
+<br>
+    <h3>{{user.mood_goal}}</h3>
     <select id="dropMoodGoal" name="moodGoal">
-      <option value=""></option>
+      <option value="pick1">Select Mood Goal Dropdown:</option>
       <option value="happy">Happy</option>
       <option value="optimistic">Optimistic</option>
       <option value="loving">Loving</option>
@@ -47,17 +44,17 @@
 <h3>Feelings Blog:{{user.blogs}}</h3> --}}
 
 <div>
-  <button class="btn">
+  <button>
     <a href="/users/{{user._id}}/edit">Edit Profile</a>
   </button>
 </div>
 <div>
-  <button class="btn">
+  <button>
     <a href="/users/{{user._id}}/blogs">Write it out in the Blog Den</a>
   </button>
 </div>
 <div>
-  <button class="btn">
+  <button>
     <a href="/users">Back to the Den</a>
   </button>
 </div>

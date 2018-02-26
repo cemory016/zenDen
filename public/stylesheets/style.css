@@ -7,13 +7,13 @@ body {
 }
 
 a {
-  color: #FFFFFF;
+  color: rgb(0, 0, 0);
 } 
-
  h1 {
   color: rgb(172, 242, 187);
   text-align: center;
   text-anchor: middle;
+  font-size: 8rem;
   font-family: 'Amatic SC', cursive;
 }
 h2 {
