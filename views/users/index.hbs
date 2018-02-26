@@ -1,23 +1,21 @@
-<h1>USER INDEX hbs</h1>
 <h1>Enter the Den</h1>
 <h1>Zen Members</h1>
 
-<div>
+<div class="userIndex">
   {{#each users}}
-  <img src="images/charles-deluvio-540415-unsplash.jpg" alt="Girl in a jacket" style="width:300px;height:400px;" />
-  <ul>
-    <li>
-      <a href="/users/{{_id}}">{{username}}</a>
-    </li>
-    <li>Tag Line: {{tagLine}}</li>
-    <li>{{email}}</li>
-  </ul>
+    <div class="userCard">
+  <img class="userImage" src="images/charles-deluvio-540415-unsplash.jpg" alt="Girl in a jacket" />
+
+    <h3><a href="/users/{{_id}}">{{username}}</a></h3>
+    <h3 class="tagLine">Tag Line: {{tagLine}}</h3>
+    <h3>{{email}}</h3>
+  </div>
   {{!--
   <li>{{current_mood}}</li>
   <li>{{mood_goal}}</li> --}} {{/each}}
 </div>
 
-<button class="btn">
+<button>
   <a href="users/new">Become a member</a>
 </button>
 <div>

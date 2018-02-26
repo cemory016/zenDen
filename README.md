@@ -4,3 +4,7 @@ https://www.figma.com/proto/WQlCYNnHfQUDYU5G4W4MkkhH/Zen-Den?scaling=contain&nod
 My user stories were written on trello. You can see the stories at the following link. https://trello.com/b/QPeZR6SJ/zen-den
 
 jQuery: https://code.jquery.com/
+
+Why: Because Mental Health is just as important as physical health.
+
+Shout Out to James and Ninti

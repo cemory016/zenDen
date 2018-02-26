@@ -1,14 +1,25 @@
-<div>
-<img src="/images/deniz-altindas-38128-unsplash.jpg" alt="userimg" height=200vh width=300vw>
+<style>
+  .user-show{
+    background: url("/images/deniz-altindas-38128-unsplash.jpg");
+    background-size: cover;
+    font-style: bold;
+
+  h1 {
+    font-style:bold;
+  }
+</style>
+
+<div class="user-show">
+{{!-- <img src="/images/deniz-altindas-38128-unsplash.jpg" alt="userimg" height=200vh width=300vw> --}}
 <h1>{{user.username}}</h1>
 <h2>{{user.tagLine}}</h2>
 <h2>{{user.email}}</h2>
 </div>
 
-<div>
+<div class="dropItDown">
   <h3>Profile: {{user.profile}}</h3>
   <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
-   
+  <h2>Current Mood:</h2>
   <h3>{{user.current_mood}}</h3>
     <select id="dropCurrentMood" name="currentMood">
       <option value="pick1">Select Current Mood Dropdown:</option>
@@ -18,6 +29,7 @@
       <option value="frustrated">Frustrated</option>
     </select>
 <br>
+<h2>Mood Goal: </h2>
     <h3>{{user.mood_goal}}</h3>
     <select id="dropMoodGoal" name="moodGoal">
       <option value="pick1">Select Mood Goal Dropdown:</option>
