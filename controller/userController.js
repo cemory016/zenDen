@@ -34,7 +34,10 @@ router.get('/:id', (req, res) => {
 
   User.findById(req.params.id).then((user) => {
       res.render('users/show', {
-          user: user,
+        id: req.params.id,
+        user: user,
+        profile: user.profile,
+        tagLine: user.tagLine,
       })
   })
 

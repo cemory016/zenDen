@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router({ mergeParams: true });
-const User = require('../models/users');
+var User = require('../models/users');
 var Blog = require('../models/blogs');
 const CurrentMood = require('../models/currentMood');
 const MoodGoal = require('../models/moodGoals');
@@ -14,27 +14,30 @@ var userController = require('../controller/userController');
 
 //USER INDEX-------GET//`
 router.get('/', (req, res) => {
-
-    Blog.find().then((blogs) => {
-      console.log("blog index listening")
+    User.findById(req.params.usersId).then((user) =>{
+        const blogs = user.blog
         res.render('users/blog/index', {
-            blogs: blogs
+            user: user,
+            blogs: blogs,
         })
     })
   
   })
   
   //USER NEW------GET//
-  router.get('/user/:id/blog/new', (req, res) => {
+  router.get('/new', (req, res) => {
   res.render('users/blog/new')
   })
   
   //USER SHOW-----GET//
   router.get('/:id', (req, res) => {
-  
-    Blog.findById(req.params.id).then((blog) => {
+    User.findById(req.params.usersId).then((user) =>{
+        const blog = user.blog.id(req.params.id)
         res.render('users/blog/show', {
-            blog: blog,
+            blogID: req.params.id,
+            id: req.params.usersID,
+            user: user,
+            blog: blog, 
         })
     })
   
@@ -68,7 +71,7 @@ router.get('/', (req, res) => {
   
   // //USER------CREATE/POST//
   // router.post('/', (req, res) => {
-  // const newUser = new User({
+  // const newBlog = new Blog({
   //   username: req.body.name,
   //   email: req.body.email,
   //   profile: req.body.profile,
@@ -79,22 +82,21 @@ router.get('/', (req, res) => {
   // })
   // })
   
-  // //USER EDIT-----GET//
-  // router.get('/:id/edit', (req, res) => {
-  
-  //   User.findById(req.params.id).then((user) => {
-  
-  //       res.render('users/edit', {
-  //           id: req.params.id,
-  //           user: user,
-  //           profile: user.profile,
-  
-  //       })
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err)
-  // })
-  //})
+  //USER EDIT-----GET//
+  router.get('/:id/edit', (req, res) => {
+        User.findById(req.params.usersId).then((user) =>{
+        const blog = user.blog.id(req.params.id)
+        res.render('users/blog/edit', {
+            blogID: req.params.id,
+            id: req.params.usersID,
+            user: user,
+            blog: blog,
+        })
+    })
+    .catch((err) =>{
+      console.log(err)
+  })
+  })
 
 
 module.exports = router;
