@@ -5,7 +5,7 @@
 <h2>{{user.tagLine}}</h2>
 <h2>{{user.email}}</h2>
 
-
+<div>
 <h3>Profile: {{user.profile}}</h3>
 <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
 <h3>Select Current Mood:</h3>{{user.current_mood}}
@@ -28,38 +28,31 @@
   
   <button type="submit">Submit Moods</button>
 </form>
+</div>
 
-<h3>Help me achieve Zen::</h3>
-<p>if selected current mood equals selected mood goal then show 'you have achieved zen'. if a value is blank reply with please select CM and MG.</p>
+{{!-- <button type="submit">Submit Moods for Zen Advice:</button>
+<h3>Advice:</h3>
+<p>WILL NEED AN ADVICE CONTROLLER: if selected current mood equals selected mood goal then show 'you have achieved zen'. if a value is blank reply with please select CM and MG.</p> --}}
   {{!-- <button class="btn" 
   onclick="zenAdvice" prompt="advice">
   use below to run advice pool?
   $('select').children(':selected').text()
   <a href="/users/{{user._id}}"></a>advice</button> --}}
 
+{{!-- <h3> Most Current Blog Post: **reach add most current blog post here</h3>
 
-
-<h3> Most Current Blog Post: **reach add most current blog post here</h3>
-
-<h3>Feelings Blog:{{user.blog}}</h3>
+<h3>Feelings Blog:{{user.blogs}}</h3> --}}
 
 <div>
-  <button class="btn">
-      <a href="/users/{{user._id}}/edit">Edit Profile</a>
-  </button>
+  <button class="btn"><a href="/users/{{user._id}}/edit">Edit Profile</a></button>
 </div>
 <div>
-<break>
-<button class="btn">
-    <a href="/users">Back to the Den</a>
-    </button>
+  <button class="btn"><a href="/users/{{user._id}}/blogs">Write it out in the Blog Den</a></button>
+    </div>
+  <div>
+  <button class="btn"><a href="/users">Back to the Den</a></button>
 </div>
-<div>
-  <break>
-  <button class="btn">
-    <a href="/users/{{user._id}}/blogs">Write it out in the Blog Den</a>
-    </button>
-</div>
+
 
 <form action="/users/{{user._id}}?_method=DELETE" method="post">
   <input type="submit" value="Remove {{user.username}} from Zen Den Members"/>
