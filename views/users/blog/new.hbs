@@ -4,15 +4,22 @@
 <h2>{{user.tagLine}}</h2>
 
 <h1>Write about how you feel to help make sense of your emotions</h1>
-<h2>Your current mood is: {{current_mood}} </h2>
-<h2>and your mood goal is: {{mood_goal}}</h2>
+<h2>Your current mood is: {{user.current_mood}} </h2>
+<h2>and your mood goal is: {{user.mood_goal}}</h2>
 <h2>Write it out:</h2>
 
-<div>
-<h3>{{blog.title}}</h3>
-<h3>{{blog.created_at}}</h3>
-<p>{{blog.words}}</p>
-<button class="btn">
-    <a href="blog/show/:id">Submit Post</a>
-    </button>
 </div>
+ <form method="post" action="/users/{{id}}/blogs">
+<div>
+    <label for="title">Post Title</label>
+    <input type="text" name="title">
+</div>
+<div>
+    <label for="words">Freedom to Write</label>
+    <input type="text" name="words">
+</div>
+
+<div>
+<button class="btn" type="submit">Submit Post</button>
+</div>
+</form>

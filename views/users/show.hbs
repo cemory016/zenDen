@@ -8,7 +8,7 @@
 
 <h3>Profile: {{user.profile}}</h3>
 <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
-<h3>Select Current Mood:</h3>
+<h3>Select Current Mood:</h3>{{user.current_mood}}
   <select id="dropCurrentMood" name="currentMood">
     <option value=""></option>
     <option value="happy">Happy</option>
@@ -16,8 +16,8 @@
     <option value="angry">Angry</option>
     <option value="frustrated">Frustrated</option>
   </select>
-{{user.current_mood}}
-<h3>Select Mood Goal:</h3>
+
+<h3>Select Mood Goal:</h3>{{user.mood_goal}}
   <select id="dropMoodGoal" name="moodGoal">
     <option value=""></option>
     <option value="happy">Happy</option>
@@ -25,7 +25,7 @@
     <option value="loving">Loving</option>
     <option value="calm">Calm</option>
   </select>
-  {{user.mood_goal}}
+  
   <button type="submit">Submit Moods</button>
 </form>
 
