@@ -7,7 +7,7 @@
 
 
 <h3>Profile: {{user.profile}}</h3>
-<form method="PATCH" action="/users/{{user._id}}"></form>
+<form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
 <h3>Select Current Mood:</h3>
   <select id="dropCurrentMood" name="currentMood">
     <option value=""></option>
@@ -16,7 +16,7 @@
     <option value="angry">Angry</option>
     <option value="frustrated">Frustrated</option>
   </select>
-
+{{user.current_mood}}
 <h3>Select Mood Goal:</h3>
   <select id="dropMoodGoal" name="moodGoal">
     <option value=""></option>
@@ -25,6 +25,9 @@
     <option value="loving">Loving</option>
     <option value="calm">Calm</option>
   </select>
+  {{user.mood_goal}}
+  <button type="submit">Submit Moods</button>
+</form>
 
 <h3>Help me achieve Zen::</h3>
 <p>if selected current mood equals selected mood goal then show 'you have achieved zen'. if a value is blank reply with please select CM and MG.</p>
@@ -33,7 +36,7 @@
   use below to run advice pool?
   $('select').children(':selected').text()
   <a href="/users/{{user._id}}"></a>advice</button> --}}
-</form>
+
 
 
 <h3> Most Current Blog Post: **reach add most current blog post here</h3>

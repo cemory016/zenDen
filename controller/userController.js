@@ -59,6 +59,23 @@ router.patch('/:id', (req, res) => {
   })
 })
 
+//USER PATCH MOOD -------- PUT/UPDATE//
+router.patch('/:id/mood', (req, res) => {
+//advice function
+console.log("inside user patch")
+  User.findByIdAndUpdate(req.params.id, {
+      current_mood: req.body.currentMood,
+      mood_goal: req.body.moodGoal,
+
+  }, {new: true}).then((updatedUser) => {
+      console.log(updatedUser);
+      res.redirect(`/users/${updatedUser.id}`)
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+})
+
 router.delete('/:id', (req, res) => {
   console.log("trying to delete");
   User.findByIdAndRemove(req.params.id).then(() => {
