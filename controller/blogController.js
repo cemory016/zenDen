@@ -13,11 +13,11 @@ var moodGoalController = require('../controller/moodGoalController');
 var userController = require('../controller/userController');
 
 //USER INDEX-------GET//`
-router.get('/users/:id/blogs', (req, res) => {
+router.get('/', (req, res) => {
 
     Blog.find().then((blogs) => {
       console.log("blog index listening")
-        res.render('blog/users/index', {
+        res.render('users/blog/index', {
             blogs: blogs
         })
     })
@@ -97,4 +97,4 @@ router.get('/users/:id/blogs', (req, res) => {
   //})
 
 
-//module.exports = router;
+module.exports = router;

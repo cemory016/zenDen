@@ -37,8 +37,8 @@ var index = require('./controller/index');
 var users = require('./controller/userController');
 var currentMood = require('./controller/currentMoodController');
 var moodGoals = require('./controller/moodGoalController');
-var about = require('./controller/aboutController')
-var blogs = require('./controller/blogController');
+var about = require('./controller/aboutController');
+const blogs = require('./controller/blogController');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -52,11 +52,11 @@ app.use(methodOverride('_method'))
 app.use('/', index);
 app.use('/users', users);
 app.use('/about', about);
-app.use('/users/:usersId/blog', blogs);
-app.use('/users/:usersId/blogs', blogController);
+app.use('/users/:usersId/blogs', blogs);
+//app.use('/users/:usersId/blogs', blogController);
 //app.use('/users/:usersId/blog', blogController)
-app.use('/users/:usersId/currentMood', currentMoodController);
-app.use('/users/:usersId/moodGoal', moodGoalController);
+app.use('/users/:usersId/currentMood', currentMood);
+app.use('/users/:usersId/moodGoal', moodGoals);
 
 
 // catch 404 and forward to error handler

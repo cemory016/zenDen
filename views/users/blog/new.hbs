@@ -1,1 +1,18 @@
 <h1>BLOG NEW hbs</h1>
+
+<h1>{{user.username}}</h1>
+<h2>{{user.tagLine}}</h2>
+
+<h1>Write about how you feel to help make sense of your emotions</h1>
+<h2>Your current mood is: {{current_mood}} </h2>
+<h2>and your mood goal is: {{mood_goal}}</h2>
+<h2>Write it out:</h2>
+
+<div>
+<h3>{{blog.title}}</h3>
+<h3>{{blog.created_at}}</h3>
+<p>{{blog.words}}</p>
+<button class="btn">
+    <a href="blog/show/:id">Submit Post</a>
+    </button>
+</div>
