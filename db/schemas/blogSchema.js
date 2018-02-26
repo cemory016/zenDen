@@ -6,8 +6,8 @@ const currentMoodSchema = require('./currentMoodSchema')
 mongoose.Promise = global.Promise
 
 const blogSchema = new Schema({
-    current_mood: [ currentMoodSchema ],
-    mood_goal: [ moodGoalSchema ],
+    current_mood: [currentMoodSchema],
+    mood_goal: [moodGoalSchema],
     title: String,
     words: String,
     created_at: Date,

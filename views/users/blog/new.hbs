@@ -1,6 +1,7 @@
 <h1>BLOG NEW hbs</h1>
 
-<h1><a href="/users/{{id}}"></a>{{user.username}}</h1>
+<h1>
+    <a href="/users/{{id}}"></a>{{user.username}}</h1>
 <h2>{{user.tagLine}}</h2>
 
 <h1>Write about how you feel to help make sense of your emotions</h1>
@@ -9,17 +10,17 @@
 <h2>Write it out:</h2>
 
 </div>
- <form method="post" action="/users/{{id}}/blogs">
-<div>
-    <label for="title">Post Title</label>
-    <input type="text" name="title">
-</div>
-<div>
-    <label for="words">Freedom to Write</label>
-    <input type="text" name="words">
-</div>
+<form method="post" action="/users/{{id}}/blogs">
+    <div>
+        <label for="title">Post Title</label>
+        <input type="text" name="title">
+    </div>
+    <div>
+        <label for="words">Freedom to Write</label>
+        <input type="text" name="words">
+    </div>
 
-<div>
-<button class="btn" type="submit">Submit Post</button>
-</div>
+    <div>
+        <button class="btn" type="submit">Submit Post</button>
+    </div>
 </form>

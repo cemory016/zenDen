@@ -3,13 +3,13 @@
 <h1>select 2. If you need more then 2 mood selectors you may be feeling confused, so select that as one of your two moods.</h1>
 
 <div>
-<form method="post" action="/users/{{id}}?_method=PATCH"></form>
-<select name="Mood" multiple size="2"></select>
-<td>
-    <tr>{{currentMood.mood}}</li>
-    <tr>{{CurrentMood.define}}</li>
-</td>
-</form>
-</div> 
+    <form method="post" action="/users/{{id}}?_method=PATCH"></form>
+    <select name="Mood" multiple size="2"></select>
+    <td>
+        <tr>{{currentMood.mood}}</li>
+            <tr>{{CurrentMood.define}}</li>
+    </td>
+    </form>
+</div>
 <button class="btn">
     <a href="/users/{{id}}">Current Mood Selected</a>

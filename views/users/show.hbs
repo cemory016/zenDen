@@ -1,80 +1,82 @@
+<h1>
 
-
-<h1>SHOW hbs</h1>
+  SHOW hbs</h1>
 <h1>{{user.username}}</h1>
 <h2>{{user.tagLine}}</h2>
 <h2>{{user.email}}</h2>
 
 <div>
-<img src="images/deniz-altindas-38128-unsplash.jpg" alt="userimg">
+  <img src="images/deniz-altindas-38128-unsplash.jpg" alt="userimg">
 
-<h3>Profile: {{user.profile}}</h3>
-<form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
-<h3>Select Current Mood:</h3>{{user.current_mood}}
-<br>
-  <select id="dropCurrentMood" name="currentMood">
-    <option value=""></option>
-    <option value="happy">Happy</option>
-    <option value="sad">Sad</option>
-    <option value="angry">Angry</option>
-    <option value="frustrated">Frustrated</option>
-  </select>
+  <h3>Profile: {{user.profile}}</h3>
+  <form method="post" action="/users/{{user._id}}/mood?_method=PATCH">
+    <h3>Select Current Mood:</h3>{{user.current_mood}}
 
-<h3>Select Mood Goal:</h3>{{user.mood_goal}}
-<br>
-  <select id="dropMoodGoal" name="moodGoal">
-    <option value=""></option>
-    <option value="happy">Happy</option>
-    <option value="optimistic">Optimistic</option>
-    <option value="loving">Loving</option>
-    <option value="calm">Calm</option>
-  </select>
-  <br>
- <br>
-  <button type="submit">Submit Moods</button>
-</form>
+    <select id="dropCurrentMood" name="currentMood">
+      <option value=""></option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="angry">Angry</option>
+      <option value="frustrated">Frustrated</option>
+    </select>
+
+    <h3>Select Mood Goal:</h3>{{user.mood_goal}}
+
+    <select id="dropMoodGoal" name="moodGoal">
+      <option value=""></option>
+      <option value="happy">Happy</option>
+      <option value="optimistic">Optimistic</option>
+      <option value="loving">Loving</option>
+      <option value="calm">Calm</option>
+    </select>
+
+    <button type="submit">Submit Moods</button>
+  </form>
 </div>
 
-{{!-- <button type="submit">Submit Moods for Zen Advice:</button>
+{{!--
+<button type="submit">Submit Moods for Zen Advice:</button>
 <h3>Advice:</h3>
-<p>WILL NEED AN ADVICE CONTROLLER: if selected current mood equals selected mood goal then show 'you have achieved zen'. if a value is blank reply with please select CM and MG.</p> --}}
-  {{!-- <button class="btn" 
-  onclick="zenAdvice" prompt="advice">
-  use below to run advice pool?
-  $('select').children(':selected').text()
-  <a href="/users/{{user._id}}"></a>advice</button> --}}
-
-{{!-- <h3> Most Current Blog Post: **reach add most current blog post here</h3>
+<p>WILL NEED AN ADVICE CONTROLLER: if selected current mood equals selected mood goal then show 'you have achieved zen'. if
+  a value is blank reply with please select CM and MG.</p> --}} {{!--
+<button class="btn" onclick="zenAdvice" prompt="advice">
+  use below to run advice pool? $('select').children(':selected').text()
+  <a href="/users/{{user._id}}"></a>advice</button> --}} {{!--
+<h3> Most Current Blog Post: **reach add most current blog post here</h3>
 
 <h3>Feelings Blog:{{user.blogs}}</h3> --}}
 
 <div>
-  <button class="btn"><a href="/users/{{user._id}}/edit">Edit Profile</a></button>
+  <button class="btn">
+    <a href="/users/{{user._id}}/edit">Edit Profile</a>
+  </button>
 </div>
 <div>
-  <button class="btn"><a href="/users/{{user._id}}/blogs">Write it out in the Blog Den</a></button>
-    </div>
-  <div>
-  <button class="btn"><a href="/users">Back to the Den</a></button>
+  <button class="btn">
+    <a href="/users/{{user._id}}/blogs">Write it out in the Blog Den</a>
+  </button>
+</div>
+<div>
+  <button class="btn">
+    <a href="/users">Back to the Den</a>
+  </button>
 </div>
 
-
 <form action="/users/{{user._id}}?_method=DELETE" method="post">
-  <input type="submit" value="Remove {{user.username}} from Zen Den Members"/>
+  <input type="submit" value="Remove {{user.username}} from Zen Den Members" />
 </form>
 
 
-{{!-- <button class="btn">
+{{!--
+<button class="btn">
   <a href="/about">About Zen Den</a>
-  </button> --}}
-
-
-{{!-- <ul>
+</button> --}} {{!--
+<ul>
   {{#each user.sodas}}
-    <li>{{name}}</li>
+  <li>{{name}}</li>
   {{/each}}
-</ul> --}}
-{{!-- <a href="/user/{{user._id}}/sodas">Go To Sodas Page</a>
+</ul> --}} {{!--
+<a href="/user/{{user._id}}/sodas">Go To Sodas Page</a>
 <br>
 <a href="/companies/{{company._id}}/edit">Edit {{company.name}}</a>
 

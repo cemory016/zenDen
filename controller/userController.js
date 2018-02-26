@@ -17,28 +17,28 @@ var userController = require('../controller/userController');
 router.get('/', (req, res) => {
 
   User.find().then((users) => {
-      res.render('users/index', {
-          users: users
-      })
+    res.render('users/index', {
+      users: users
+    })
   })
 
 })
 
 //USER NEW------GET//
 router.get('/new', (req, res) => {
-res.render('users/new')
+  res.render('users/new')
 })
 
 //USER SHOW-----GET//
 router.get('/:id', (req, res) => {
 
   User.findById(req.params.id).then((user) => {
-      res.render('users/show', {
-        id: req.params.id,
-        user: user,
-        profile: user.profile,
-        tagLine: user.tagLine,
-      })
+    res.render('users/show', {
+      id: req.params.id,
+      user: user,
+      profile: user.profile,
+      tagLine: user.tagLine,
+    })
   })
 
 })
@@ -50,30 +50,30 @@ router.patch('/:id', (req, res) => {
     email: req.body.email,
     profile: req.body.profile,
     tagLine: req.body.tagLine,
-  }, {new: true}).then((updatedUser) => {
-      console.log(updatedUser);
-      res.redirect(`/users/${updatedUser.id}`)
+  }, { new: true }).then((updatedUser) => {
+    console.log(updatedUser);
+    res.redirect(`/users/${updatedUser.id}`)
   })
-  .catch((err) => {
-    console.log(err);
-  })
+    .catch((err) => {
+      console.log(err);
+    })
 })
 
 //USER PATCH MOOD -------- PUT/UPDATE//
 router.patch('/:id/mood', (req, res) => {
-//advice function
-console.log("inside user patch")
+  //advice function
+  console.log("inside user patch")
   User.findByIdAndUpdate(req.params.id, {
-      current_mood: req.body.currentMood,
-      mood_goal: req.body.moodGoal,
+    current_mood: req.body.currentMood,
+    mood_goal: req.body.moodGoal,
 
-  }, {new: true}).then((updatedUser) => {
-      console.log(updatedUser);
-      res.redirect(`/users/${updatedUser.id}`)
+  }, { new: true }).then((updatedUser) => {
+    console.log(updatedUser);
+    res.redirect(`/users/${updatedUser.id}`)
   })
-  .catch((err) => {
-    console.log(err);
-  })
+    .catch((err) => {
+      console.log(err);
+    })
 })
 
 router.delete('/:id', (req, res) => {
@@ -82,23 +82,23 @@ router.delete('/:id', (req, res) => {
     console.log("trying to delete");
     res.redirect('/users')
   })
-  .catch((err)=>{
-    console.log(err)
-  })
+    .catch((err) => {
+      console.log(err)
+    })
 })
 
 //USER------CREATE/POST//
 router.post('/', (req, res) => {
-const newUser = new User({
-  username: req.body.name,
-  email: req.body.email,
-  profile: req.body.profile,
-  tagLine: req.body.tagLine,
-})
+  const newUser = new User({
+    username: req.body.name,
+    email: req.body.email,
+    profile: req.body.profile,
+    tagLine: req.body.tagLine,
+  })
 
-newUser.save().then((savedUser) => {
-  res.redirect(`/users/${savedUser._id}`)
-})
+  newUser.save().then((savedUser) => {
+    res.redirect(`/users/${savedUser._id}`)
+  })
 })
 
 //USER EDIT-----GET//
@@ -106,17 +106,17 @@ router.get('/:id/edit', (req, res) => {
 
   User.findById(req.params.id).then((user) => {
 
-      res.render('users/edit', {
-          id: req.params.id,
-          user: user,
-          profile: user.profile,
-          tagLine: user.tagLine,
-          img: user.img
-      })
+    res.render('users/edit', {
+      id: req.params.id,
+      user: user,
+      profile: user.profile,
+      tagLine: user.tagLine,
+      img: user.img
+    })
   })
-  .catch((err) =>{
-    console.log(err)
-})
+    .catch((err) => {
+      console.log(err)
+    })
 })
 
 //USER DELETE-------DESTROY//

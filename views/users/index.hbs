@@ -4,20 +4,25 @@
 
 <div>
   {{#each users}}
-    <img src="images/charles-deluvio-540415-unsplash.jpg" alt="Girl in a jacket" style="width:300px;height:400px;"/>
-     <ul>
-     <li><a href="/users/{{_id}}">{{username}}</a></li>
-     <li>Tag Line: {{tagLine}}</li>
-     <li>{{email}}</li>
-   </ul>
-    {{!-- <li>{{current_mood}}</li>
-    <li>{{mood_goal}}</li> --}}
-  {{/each}}
+  <img src="images/charles-deluvio-540415-unsplash.jpg" alt="Girl in a jacket" style="width:300px;height:400px;" />
+  <ul>
+    <li>
+      <a href="/users/{{_id}}">{{username}}</a>
+    </li>
+    <li>Tag Line: {{tagLine}}</li>
+    <li>{{email}}</li>
+  </ul>
+  {{!--
+  <li>{{current_mood}}</li>
+  <li>{{mood_goal}}</li> --}} {{/each}}
 </div>
 
-<button class="btn"><a href="users/new">Become a member</a></button>
+<button class="btn">
+  <a href="users/new">Become a member</a>
+</button>
 <div>
-{{!-- <button class="btn">
+  {{!--
+  <button class="btn">
     <a href="users/guest">Enter the Den as a Guest**add guest member that doesnt have blogging or require login email</a>
-    </button> --}}
+  </button> --}}
 </div>

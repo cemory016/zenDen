@@ -1,21 +1,26 @@
+title {
+  font-family: 'Amatic SC', cursive;
+}
+  
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
- 
+  color: #FFFFFF;
+} 
 
-}
- p {
-   color: rgb(16, 94, 33);
- 
- } 
  h1 {
-  color: rgb(16, 94, 33);
-
-  border-color: blueviolet;
-
+  color: rgb(172, 242, 187);
+  text-align: center;
+  text-anchor: middle;
+  font-family: 'Amatic SC', cursive;
+}
+h2 {
+  color: rgb(172, 242, 187);
+  text-align: center;
+  text-anchor: middle;
+  font-family: 'Amatic SC', cursive;
 }
 div.backImg {
   background: url("/images/aleksandr-ledogorov-310150-unsplash.jpg");

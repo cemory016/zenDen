@@ -67,19 +67,19 @@ app.use('/users/:usersId/moodGoal', moodGoals);
 // });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-// Will log an error if db can't connect to MongoDB
-db.on('error', function (err) {
-  console.log(err)
-})
-// Will log "database has been connected" if it successfully connects.
-db.once('open', function () {
-  console.log('database has been connected!')
-})
+  // Will log an error if db can't connect to MongoDB
+  db.on('error', function (err) {
+    console.log(err)
+  })
+  // Will log "database has been connected" if it successfully connects.
+  db.once('open', function () {
+    console.log('database has been connected!')
+  })
 
 
   // render the error page

@@ -14,7 +14,7 @@ var userController = require('../controller/userController');
 
 //USER INDEX-------GET//`
 router.get('/', (req, res) => {
-    User.findById(req.params.usersId).then((user) =>{
+    User.findById(req.params.usersId).then((user) => {
         const blogs = user.blog
         res.render('users/blog/index', {
             user: user,
@@ -22,76 +22,76 @@ router.get('/', (req, res) => {
             id: req.params.usersId,
         })
     })
-  
-  })
-  
-  //USER NEW------GET//
-  router.get('/new', (req, res) => {
-    
-  res.render('users/blog/new', {
-    id: req.params.usersId,
-  })
-  })
-  
-  //USER SHOW-----GET//
-  router.get('/:id', (req, res) => {
-    User.findById(req.params.usersId).then((user) =>{
+
+})
+
+//USER NEW------GET//
+router.get('/new', (req, res) => {
+
+    res.render('users/blog/new', {
+        id: req.params.usersId,
+    })
+})
+
+//USER SHOW-----GET//
+router.get('/:id', (req, res) => {
+    User.findById(req.params.usersId).then((user) => {
         const blog = user.blog.id(req.params.id)
         res.render('users/blog/show', {
             blogID: req.params.id,
             id: req.params.usersId,
             user: user,
-            blog: blog, 
+            blog: blog,
         })
     })
-  
-  })
-  
-  
-  //USER PATCH------PUT/UPDATE//
-  router.patch('/:id', (req, res) => {
-      User.findById(req.params.usersId).then((user) => {
-          const blog = user.blog.id(req.params.id)
-          blog.title = req.body.title
-          blog.words = req.body.words
 
-          return user.save()
-      }).then((updatedUser) => {
-          res.redirect(`/users/${req.params.usersId}/blogs/${req.params.id}`)
-      })
-    .catch((err) => {
-      console.log(err);
+})
+
+
+//USER PATCH------PUT/UPDATE//
+router.patch('/:id', (req, res) => {
+    User.findById(req.params.usersId).then((user) => {
+        const blog = user.blog.id(req.params.id)
+        blog.title = req.body.title
+        blog.words = req.body.words
+
+        return user.save()
+    }).then((updatedUser) => {
+        res.redirect(`/users/${req.params.usersId}/blogs/${req.params.id}`)
     })
-  })
-  //one can not delete ones feelings...sorry folks
-  // router.delete('blog/:id', (req, res) => {
-  //   console.log("trying to delete");
-  //   Blog.findByIdAndRemove(req.params.id).then(() => {
-  //     console.log("trying to delete");
-  //     res.redirect('blog/users')
-  //   })
-  //   .catch((err)=>{
-  //     console.log(err)
-  //   })
-  // })
-  
-  // //USER------CREATE/POST//
-  router.post('/', (req, res) => {
-  User.findById(req.params.usersId).then((user) => {
-      const newBlog = new Blog({ 
-          title: req.body.title,
-          words: req.body.words,
-      })
-      user.blog.push(newBlog)
-      return user.save()
+        .catch((err) => {
+            console.log(err);
+        })
+})
+//one can not delete ones feelings...sorry folks
+// router.delete('blog/:id', (req, res) => {
+//   console.log("trying to delete");
+//   Blog.findByIdAndRemove(req.params.id).then(() => {
+//     console.log("trying to delete");
+//     res.redirect('blog/users')
+//   })
+//   .catch((err)=>{
+//     console.log(err)
+//   })
+// })
+
+// //USER------CREATE/POST//
+router.post('/', (req, res) => {
+    User.findById(req.params.usersId).then((user) => {
+        const newBlog = new Blog({
+            title: req.body.title,
+            words: req.body.words,
+        })
+        user.blog.push(newBlog)
+        return user.save()
     }).then((updatedUser) => {
         res.redirect(`/users/${req.params.usersId}/blogs`)
     })
-  })
-  
-  //USER EDIT-----GET//
-  router.get('/:id/edit', (req, res) => {
-        User.findById(req.params.usersId).then((user) =>{
+})
+
+//USER EDIT-----GET//
+router.get('/:id/edit', (req, res) => {
+    User.findById(req.params.usersId).then((user) => {
         const blog = user.blog.id(req.params.id)
         res.render('users/blog/edit', {
             blogID: req.params.id,
@@ -100,10 +100,10 @@ router.get('/', (req, res) => {
             blog: blog,
         })
     })
-    .catch((err) =>{
-      console.log(err)
-  })
-  })
+        .catch((err) => {
+            console.log(err)
+        })
+})
 
 
 module.exports = router;

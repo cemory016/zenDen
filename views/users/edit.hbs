@@ -12,7 +12,7 @@
     <label for="tagLine">What's you moto?</label>
     <input type="text" name="tagLine" value="{{user.tagLine}}">
   </div>
-  
+
   <div>
     <label for="email">Enter a valid email</label>
     <input type="text" name="email" value="{{user.email}}">
@@ -22,10 +22,12 @@
     <label for="profile">A little About Yourself</label>
     <input type="text" name="profile" value="{{user.profile}}">
   </div>
-  
+
   <input type="submit" value="Update account">
 </form>
 
 
-<button><a href="/users/{{user.id}}">cancel</a></button>
+<button>
+  <a href="/users/{{user.id}}">cancel</a>
+</button>
 <a href="/users/{{id}}">Back to {{user.username}}'s Profile</a>

@@ -1,18 +1,21 @@
-
-<h1>Mood Goal INDEX</h1>
+<h1>
+    Mood Goal INDEX</h1>
 
 <ul>
-  <p>Hey there {{usersname}} what is you mood goal?</p>
-    <li><a href="/users/{{_id}}" >{{username}}</a></li>
+    <p>Hey there {{usersname}} what is you mood goal?</p>
+    <li>
+        <a href="/users/{{_id}}">{{username}}</a>
+    </li>
     <li>{{mood_goal}}</li>
-</ul> 
+</ul>
 
 <form method="post" action="/users/{{id}}?_method=PATCH"></form>
 <select name="Mood" multiple size="2"></select>
 <h2>Lets Change our Mood</h2>
 <td>
     <tr>{{moodGoals.mood}}</li>
-    <tr>{{moodGoals.define}}</li>
+        <tr>{{moodGoals.define}}</li>
 </td>
 
-<button type="submit"><a href="/users/{{id}}">Mood Selected</a>
+<button type="submit">
+    <a href="/users/{{id}}">Mood Selected</a>

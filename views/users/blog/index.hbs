@@ -1,6 +1,8 @@
 <h1>Blog INDEX hbs</h1>
 
-<h1><a href="/users/{{id}}">{{user.username}}</a></h1>
+<h1>
+    <a href="/users/{{id}}">{{user.username}}</a>
+</h1>
 <h2>{{user.tagLine}}</h2>
 
 <h1>Write about how you feel to help make sense of your emotions</h1>
@@ -9,18 +11,26 @@
 
 <div>
 
-{{#each blogs}}
-<h3>{{title}}</h3>
-{{!-- <li>{{created_at}}</li> --}}
-<p>{{words}}</p>
-<button class="btn"><a href="blogs/{{_id}}/edit">edit post</a></button>
-<hr>
-{{/each}}
+    {{#each blogs}}
+    <h3>{{title}}</h3>
+    {{!--
+    <li>{{created_at}}</li> --}}
+    <p>{{words}}</p>
+    <button class="btn">
+        <a href="blogs/{{_id}}/edit">edit post</a>
+    </button>
+    <hr> {{/each}}
 
 </div>
 
-<button class="btn"><a href="blogs/new/">new blog post</a></button>
+<button class="btn">
+    <a href="blogs/new/">new blog post</a>
+</button>
 
-<button class="btn"><a href="/users/{{id}}">Back to {{user.username}}'s Profile</a></button>
+<button class="btn">
+    <a href="/users/{{id}}">Back to {{user.username}}'s Profile</a>
+</button>
 
-<button class="btn"><a href="/users">back to Zen Member Den</a></button>
+<button class="btn">
+    <a href="/users">back to Zen Member Den</a>
+</button>
