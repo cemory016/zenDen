@@ -21,8 +21,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 var mongoose = require('mongoose');
-mongoose.connect('process.env.MONGODB_URI');
-mongoose.connect('mongodb://localhost/zenden');
+mongoose.connect(process.env.MONGODB_URI)
+
 var db = mongoose.connection
 db.on('open', () => {
   console.log('Successfully connected to mongoDB')
