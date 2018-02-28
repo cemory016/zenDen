@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const user = require('../models/users')
 const moodGoalSchema = require('../models/moodGoals')
 const currentMoodSchema = require('../models/currentMood')
-const blogSchema = require('../models/blog')
+const blogSchema = require('../models/blogs')
 
 // remember that this is a standalone file, meaning we will run this
 // by writing `node db/seeds.js`
